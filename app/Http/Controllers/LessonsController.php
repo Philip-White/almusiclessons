@@ -50,6 +50,7 @@ class LessonsController extends Controller
         $lesson = new Lesson;
         $lesson->title = $request->input('title');
         $lesson->body = $request->input('body');
+        $lesson->user_id = auth()->user()->id;
         $lesson->save();
 
         return redirect('/lessons')->with('success', 'Lesson Created');

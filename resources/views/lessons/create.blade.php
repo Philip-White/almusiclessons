@@ -10,7 +10,10 @@
         <div class="form-group">
             {{Form::label('body', 'Body')}}
             {{Form::textarea('body', '', ['class' => 'form-control', 'placeholder' => 'Body of Lesson'])}}
-        </div>   
+        </div>
+        <div class="form-group">
+            {{Form::file('cover_image')}}
+        </div>
         {{Form::submit('Submit', ['class' => 'btn btn-primary'])}} 
     {!! form::close() !!}
 @endsection

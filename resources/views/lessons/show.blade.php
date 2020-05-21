@@ -7,7 +7,7 @@
         {!! $lesson->body !!}
     </div>
     <hr>
-    <small>Entered on {{$lesson->created_at}}</small>
+    <small>Entered on {{$lesson->created_at}} by {{$lesson->user->name}}</small>
     <hr>
     <a href="/lessons/{{$lesson->id}}/edit" class="btn btn-default">Edit Lesson</a>
 
