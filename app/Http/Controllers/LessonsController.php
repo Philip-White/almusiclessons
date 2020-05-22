@@ -4,11 +4,24 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Lesson;
+use Illuminate\Support\Facades\Storage;
 use DB;
 
 
 class LessonsController extends Controller
 {
+/**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+
+
     /**
      * Display a listing of the resource.
      *
@@ -44,13 +57,40 @@ class LessonsController extends Controller
         $this->validate($request, [
             'title' => 'required',
             'body' => 'required',
+            'cover_image' => 'image|nullable|max:1999'
         ]);
+
+        //Handle file upload
+
+        if($request->hasFile('cover_image')){
+            //Get filename with the extension
+            $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
+            //Get just filename
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+
+            //Get just extension
+
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+            //Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+
+            //upload the image
+
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+
+
+        }else{
+            $fileNameToStore = 'noimage.jpeg';
+        }
 
         //Create Lesson
         $lesson = new Lesson;
         $lesson->title = $request->input('title');
         $lesson->body = $request->input('body');
         $lesson->user_id = auth()->user()->id;
+        $lesson->cover_image = $fileNameToStore;
         $lesson->save();
 
         return redirect('/lessons')->with('success', 'Lesson Created');
@@ -79,6 +119,12 @@ class LessonsController extends Controller
     {
         //
         $lesson = Lesson::find($id);
+
+        //Check for correct user
+
+        if(Auth()->user()->id !== $lesson->user_id){
+            return redirect('/lessons')->with('error', 'Unauthorized Page');
+        }
         return view('lessons.edit')->with('lesson', $lesson);
     }
 
@@ -97,10 +143,35 @@ class LessonsController extends Controller
             'body' => 'required',
         ]);
 
+
+        if($request->hasFile('cover_image')){
+            //Get filename with the extension
+            $fileNameWithExt = $request->file('cover_image')->getClientOriginalName();
+            //Get just filename
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+
+            //Get just extension
+
+            $extension = $request->file('cover_image')->getClientOriginalExtension();
+
+            //Filename to store
+            $fileNameToStore = $filename.'_'.time().'.'.$extension;
+
+
+            //upload the image
+
+            $path = $request->file('cover_image')->storeAs('public/cover_images', $fileNameToStore);
+
+
+        }
+
         //Create Lesson
         $lesson = Lesson::find($id);
         $lesson->title = $request->input('title');
         $lesson->body = $request->input('body');
+        if($request->hasFile('cover_image')){
+            $lesson->cover_image = $fileNameToStore;
+        }
         $lesson->save();
 
         return redirect('/lessons')->with('success', 'Lesson Updated');
@@ -116,6 +187,17 @@ class LessonsController extends Controller
     {
         //
         $lesson = Lesson::find($id);
+
+        if(Auth()->user()->id !== $lesson->user_id){
+            return redirect('/lessons')->with('error', 'Unauthorized Page');
+        }
+
+        if($lesson->cover_image != 'noimage.jpeg'){
+            Storage::delete('public/cover_images/'.$lesson->cover_image);
+
+        }
+
+
         $lesson->delete();
 
         return redirect('/lessons')->with('success', 'Lesson has been removed');

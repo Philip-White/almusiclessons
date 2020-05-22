@@ -2,7 +2,7 @@
 
 @section('content')
     <h1>Create a Lesson</h1>
-    {!! Form::open(['action' => 'LessonsController@store', 'method' => 'POST']) !!}
+    {!! Form::open(['action' => 'LessonsController@store', 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
         <div class="form-group">
             {{Form::label('title', 'Title')}}
             {{Form::text('title', '', ['class' => 'form-control', 'placeholder' => 'Title'])}}
