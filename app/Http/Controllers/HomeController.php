@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Spatie\Permission\Models\Permission;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\PermissionRegistrar;
 
 class HomeController extends Controller
 {
@@ -24,6 +27,15 @@ class HomeController extends Controller
      */
     public function index()
     {
+        //Role::create(['name' => 'writer']);
+        //Permission::create(['name' => 'write lessons']);
+        //auth()->user()->givePermissionTo('write lessons');
+        //auth()->user()->assignRole('writer');
+        //return auth()->user()->permissions;
+
+
+
+
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
         return view('home')->with('lessons', $user->lessons);
