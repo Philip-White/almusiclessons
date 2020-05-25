@@ -17,7 +17,8 @@ class LessonsController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth','role:writer')->only('create');
+        $this->middleware('role:writer')->only('create');
+        $this->middleware('auth');
     }
 
 

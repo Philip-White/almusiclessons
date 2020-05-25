@@ -15,7 +15,6 @@
                     @endif
                     @role('writer')
                             <a href="lessons/create" class="btn btn-primary">Create Lesson</a>
-                            @endrole    
                             <h3>Your Lessons</h3>
                                 @if(count($lessons) > 0)
                                     <table class="table  table-striped">
@@ -42,6 +41,13 @@
                                     @else
                                     <p>You have no Lessons...</p>
                                 @endif
+                                <!--the else below here if for role checking...-->
+                                @else
+                                <!--the else above is for role checking...-->
+                                <p>Welcome user {{Auth::user()->name}}!</p>
+                                <br>
+                                <a href="/lessons" class='btn btn-primary'>Go to Lessons</a>
+                                    @endrole
                 </div>
             </div>
         </div>
