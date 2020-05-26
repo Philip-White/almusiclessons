@@ -12,3 +12,22 @@ body{
 .brand{
     font-family: 'Permanent Marker', cursive;
 }
+
+.card-img-top{
+  width: 100%;
+  height: 40vw;
+  object-fit: cover;
+}
+
+.videoScreen{
+  padding-left: 60px;
+}
+
+/*
+Inside this is where changes are made specifically for desktop
+*/
+
+@media only screen and (min-width: 768px){
+
+
+}

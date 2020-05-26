@@ -5,7 +5,12 @@
     <div class="card" style="width: auto;">
         <img src="/storage/cover_images/{{$lesson->cover_image}}" class="card-img-top">
         <div class="card-body">
+            
           <h5 class="card-title">{{$lesson->title}}</h5>
+          <div class="videoScreen">
+            <iframe width="950" height="450" src="{{$lesson->video1}}">
+            </iframe>
+          </div>
           <p>{!! $lesson->body !!}</p>
             <hr>
             <small>Entered on {{$lesson->created_at}} by {{$lesson->user->name}}</small>

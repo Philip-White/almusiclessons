@@ -92,6 +92,7 @@ class LessonsController extends Controller
         $lesson->body = $request->input('body');
         $lesson->user_id = auth()->user()->id;
         $lesson->cover_image = $fileNameToStore;
+        $lesson->video1 = $request->input('video1');
         $lesson->save();
 
         return redirect('/lessons')->with('success', 'Lesson Created');
@@ -170,6 +171,7 @@ class LessonsController extends Controller
         $lesson = Lesson::find($id);
         $lesson->title = $request->input('title');
         $lesson->body = $request->input('body');
+        $lesson->video1 = $request->input('video1');
         if($request->hasFile('cover_image')){
             $lesson->cover_image = $fileNameToStore;
         }
