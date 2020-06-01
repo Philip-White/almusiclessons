@@ -27,11 +27,17 @@ class HomeController extends Controller
      */
     public function index()
     {
-        //Role::create(['name' => 'writer']);
-        //Permission::create(['name' => 'write lessons']);
-        //auth()->user()->givePermissionTo('write lessons');
-        //auth()->user()->assignRole('writer');
-        //return auth()->user()->permissions;
+        //Do these two commands first
+         //Role::create(['name' => 'creator']);
+         //Permission::create(['name' => 'create lessons']);
+         //Then do these 3 
+           //$role = Role::findById(1);
+           //$permission = Permission::findById(1);
+           //$role->givePermissionTo($permission);
+           //Then do these 2 to setup a person for creating lessons...  Just Andrew  so far
+         //auth()->user()->givePermissionTo('create lessons');
+         //auth()->user()->assignRole('creator');
+         //return auth()->user()->permissions;
 
 
 

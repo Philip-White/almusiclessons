@@ -13,7 +13,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    @role('writer')
+                    @role('creator')
                             <a href="lessons/create" class="btn btn-primary">Create Lesson</a>
                             <h3>Your Lessons</h3>
                                 @if(count($lessons) > 0)
