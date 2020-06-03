@@ -46,11 +46,9 @@
               <li class="nav-item">
                   <a class="nav-link" href="/lessons">Lessons</a>
                 </li>
-                <!--
                 <li class="nav-item">
-                  <a class="nav-link" href="/lessons/create">Create a Lesson</a>
+                  <a class="nav-link" href="/intermediatelessons">Intermediate Lessons</a>
                 </li>
-              -->
             </ul>
 
             <!-- Right Side Of Navbar -->

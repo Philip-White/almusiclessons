@@ -47,7 +47,46 @@
                                 <p>Welcome user {{Auth::user()->name}}!</p>
                                 <br>
                                 <a href="/lessons" class='btn btn-primary'>Go to Lessons</a>
-                                    @endrole
+                                @endrole
+
+                                    @role('creator')
+
+                                <a href="intermediatelessons/create" class="btn btn-primary">Create Intermediate Lesson</a>
+                                <h3>Your Lessons</h3>
+                                    @if(count($intLessons) > 0)
+                                        <table class="table  table-striped">
+                                            <tr>
+                                                <th>Title</th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                        @foreach($intLessons as $intLesson)
+                                        <tr>
+                                            <td>{{$intLesson->title}}</td>
+                                            <td><a href="/intermediatelessons/{{$intLesson->id}}/edit" class="btn btn-primary">Edit</a></td>
+                                            <td>
+    
+                                                {!!Form::open(['action' => ['IntermediateLessonsController@destroy', $intLesson->id], 'method' => 'POST', 'class' => 'float-right'])!!}
+        {{Form::hidden('_method', 'DELETE')}}
+        {{Form::submit('Delete',['class' => 'btn btn-danger'])}}
+    {!!Form::close()!!}
+    
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                        </table>
+                                        @else
+                                        <p>You have no Lessons...</p>
+                                    @endif
+                                    <!--the else below here if for role checking...-->
+                                    @else
+                                    <!--the else above is for role checking...-->
+                                    <p>Welcome user {{Auth::user()->name}}!</p>
+                                    <br>
+                                    <a href="/intermediatelessons" class='btn btn-primary'>Go to Intermediate Lessons</a>
+                                        @endrole
+
+
                 </div>
             </div>
         </div>

@@ -43,7 +43,10 @@ class HomeController extends Controller
 
 
         $user_id = auth()->user()->id;
-        $user = User::find($user_id);
-        return view('home')->with('lessons', $user->lessons);
+        $lessons = User::find($user_id)->lessons;
+        $intLessons = User::find($user_id)->intermediate_lessons;
+        return view('home', ['lessons' => $lessons, 'intLessons' => $intLessons]);
+
+        //return view('home')->with('lessons', $lessons);
     }
 }

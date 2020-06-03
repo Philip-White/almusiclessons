@@ -20,4 +20,6 @@ Route::get('/services', 'PagesController@services');
 Route::resource('lessons', 'LessonsController');
 Auth::routes();
 
+Route::resource('intermediatelessons', 'IntermediateLessonsController');
+
 Route::get('/home', 'HomeController@index')->name('home');

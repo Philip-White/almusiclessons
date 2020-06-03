@@ -33,6 +33,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Lesson');
     }
 
+    public function intermediate_lessons(){
+        return $this->hasMany('App\IntermediateLesson');
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
