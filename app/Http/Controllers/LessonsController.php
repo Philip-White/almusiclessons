@@ -172,6 +172,18 @@ class LessonsController extends Controller
         $lesson->title = $request->input('title');
         $lesson->body = $request->input('body');
         $lesson->video1 = $request->input('video1');
+
+
+        //directly below is where we stop the storage build up in our public/cover_image folder
+        //Each time a user edits their lesson or 'post' they will have to submit their
+        //picture file again...  in testing...june3/2020
+        if($lesson->cover_image != 'noimage.jpg'){
+            Storage::delete('public/cover_images/'.$lesson->cover_image);
+
+        }
+        //ends...  in testing... june3/2020
+
+
         if($request->hasFile('cover_image')){
             $lesson->cover_image = $fileNameToStore;
         }
@@ -195,7 +207,7 @@ class LessonsController extends Controller
             return redirect('/lessons')->with('error', 'Unauthorized Page');
         }
 
-        if($lesson->cover_image != 'noimage.jpeg'){
+        if($lesson->cover_image != 'noimage.jpg'){
             Storage::delete('public/cover_images/'.$lesson->cover_image);
 
         }

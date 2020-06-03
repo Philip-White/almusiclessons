@@ -155,6 +155,16 @@ class IntermediateLessonsController extends Controller
         $intLesson->body = $request->input('body');
         $intLesson->video1 = $request->input('video1');
 
+//directly below is where we stop the storage build up in our public/cover_image folder
+//Each time a user edits their lesson or 'post' they will have to submit their
+//picture file again...  in testing...june3/2020
+        if($intLesson->cover_image != 'noimage.jpg'){
+            Storage::delete('public/cover_images/'.$intLesson->cover_image);
+
+        }
+//ends...  in testing...june3/2020
+
+
         if($request->hasFile('cover_image')){
             $intLesson->cover_image = $fileNameToStore;
         }
