@@ -15,6 +15,7 @@
             {{Form::label('body', 'Body')}}
             {{Form::textarea('body', $intLesson->body, ['class' => 'form-control', 'placeholder' => 'Body Text'])}}
         </div>
+        <small>(You must enter the picture file each time you edit your lesson)</small>
         <div class="form-group">
             {{Form::file('cover_image')}}
         </div>
