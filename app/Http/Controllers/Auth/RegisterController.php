@@ -37,7 +37,9 @@ class RegisterController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        //used to be just 'guest' instead of 'role:creator
+        //This is to let Andrew control who can sign up and take lessons
+        $this->middleware('role:creator');
     }
 
     /**

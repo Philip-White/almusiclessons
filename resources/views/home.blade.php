@@ -14,6 +14,10 @@
                         </div>
                     @endif
                     @role('creator')
+                    <!--Here and only here is where a user can be registered to use the app
+                    Also, only Andrew can do this as he is the only user that is a creator-->
+                    <a class="btn btn-primary" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        <h3>Register a new user</h3>
                             <a href="lessons/create" class="btn btn-primary">Create Lesson</a>
                             <h3>Your Lessons</h3>
                                 @if(count($lessons) > 0)
@@ -81,7 +85,7 @@
                                     <!--the else below here if for role checking...-->
                                     @else
                                     <!--the else above is for role checking...-->
-                                    <p>Welcome user {{Auth::user()->name}}!</p>
+                                    <br>
                                     <br>
                                     <a href="/intermediatelessons" class='btn btn-primary'>Go to Intermediate Lessons</a>
                                         @endrole
