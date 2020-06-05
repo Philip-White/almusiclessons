@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+
+    //This is some jquery to make the app responsive
     if($(window).width() > 381 && $(window).width() < 768){
  $("iframe").css("width", "350px");
  $("iframe").css("height", "250px");
@@ -17,4 +19,8 @@ $(document).ready(function(){
  $(".videoScreen").css("padding-left", "50px");
 
     }
+
+
+//This is the fancy intro...
+$("#thePill").delay('slow').fadeIn();
 });

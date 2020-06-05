@@ -9,7 +9,7 @@ class PagesController extends Controller
     //
 
     public function index(){
-        $title = 'Welcome to the drum App!';
+        $title = 'almusiclessons';
         return view('pages.index')->with('title', $title);
     }
 
@@ -21,7 +21,7 @@ class PagesController extends Controller
     public function services(){
         $data = array(
             'title' => 'Services',
-            'services' => ['programming', 'web design', 'seo']
+            'services' => ['guitar', 'music theory', 'percussion']
         );
         return view('pages.services')->with($data);
     }

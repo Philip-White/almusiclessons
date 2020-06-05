@@ -22,6 +22,26 @@ body{
 .videoScreen{
   padding-left: 60px;
 }
+/*
+This area is where we style the entrance to the application
+*/
+.intro{
+  font-family: 'Permanent Marker', cursive;
+  text-align: center;
+}
+
+.thePill{
+  display: none;
+}
+
+#getStarted:hover {
+  border-style: solid;
+  border-color: black;
+}
+#getStarted1:hover{
+  border-style: solid;
+  border-color: black;
+}
 
 /*
 Inside this is where changes are made specifically for desktop

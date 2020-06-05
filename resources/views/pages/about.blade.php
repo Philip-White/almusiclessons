@@ -9,6 +9,12 @@
         </div>
         <div class='col-md-8 col-sm-8'>
     <h3>Offering music lessons for many instruments and theory</h3>
+    <p>blah blah blah ...</p>
+
+    <br>
+    <br>
+    <br>
+    <p> email message/Contact</p>
     </div>
 </div>
 @endsection
