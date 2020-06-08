@@ -5,6 +5,8 @@
         <br>
         <br>
         <div class='intro'>
+                <img src="/img/me.jpg">
+
                 <h1 class='animate__animated animate__slideInLeft'>almusiclessons</h1>
                         <div class='thePill' id='thePill'>
                                 <p style='display: inline; color: white; border-style: solid;' id='getStarted'><a style="color: white;" href="{{ route('login') }}">{{ __('Login') }}</a></p>
