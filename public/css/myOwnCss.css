@@ -43,6 +43,15 @@ This area is where we style the entrance to the application
   border-color: black;
 }
 
+.drumStyle{
+  font-size: 76px;
+}
+
+.instrumentStyle{
+  padding-left: 220px;
+  padding-top: 50px;
+}
+
 /*
 Inside this is where changes are made specifically for desktop
 */

@@ -23,3 +23,6 @@ Auth::routes();
 Route::resource('intermediatelessons', 'IntermediateLessonsController');
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('contact-us', 'ContactController@getContact');
+Route::post('contact-us', 'ContactController@saveContact');
