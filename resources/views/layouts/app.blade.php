@@ -6,7 +6,6 @@
 
         <title>{{config('app.name', 'almusiclessons')}}</title>
 
-        <title>{{config('app.name', 'drummerPage')}}</title>
          <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
