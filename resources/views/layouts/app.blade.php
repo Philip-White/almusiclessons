@@ -26,9 +26,9 @@
 
 </head>
 <body>
+    @include('inc.navbar')
     @include('inc.loader')
     <div id='siteContent' style="display: none;">
-    @include('inc.navbar')
         <br>
         <div class="container">
         @include('inc.messages')
