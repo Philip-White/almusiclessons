@@ -38,4 +38,14 @@ $(document).ready(function(){
 
 //This is the fancy intro...
 $("#thePill").delay('slow').fadeIn();
+
+
+
+//This is a attempt at a custom loader
+  //Very simple..
+  var elem = document.getElementById("myBar");
+  setTimeout(function (){
+    $("#myBar").css("display", "none");
+    $("#siteContent").css("display", "block");
+  }, 2000);
 });

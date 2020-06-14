@@ -26,7 +26,8 @@
 
 </head>
 <body>
-    <div id='app'>
+    @include('inc.loader')
+    <div id='siteContent' style="display: none;">
     @include('inc.navbar')
         <br>
         <div class="container">
