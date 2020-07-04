@@ -39,7 +39,7 @@ class RegisterController extends Controller
     {
         //used to be just 'guest' instead of 'role:creator
         //This is to let Andrew control who can sign up and take lessons
-        //$this->middleware('role:creator');
+        $this->middleware('role:creator');
     }
 
     /**
