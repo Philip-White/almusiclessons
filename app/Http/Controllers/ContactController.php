@@ -37,7 +37,7 @@ class ContactController extends Controller {
              ), function($message) use ($request)
                {
                   $message->from($request->email);
-                  $message->to('phlwhite5@gmail.com');
+                  $message->to('fake@email.com');
                });
 
           return back()->with('success', 'Thank you!');
